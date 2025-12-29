@@ -3,61 +3,61 @@ import React, { useEffect, useState } from "react";
 const API_BASE =
   "http://203.249.87.58/db2025_502/db2025_502_team1/api";
 
-// 🔥 카테고리 트리 (네가 사용하던 그대로)
+// 카테고리 트리
 const CATEGORY_TREE = [
   {
     key: "food_convenience",
-    label: "🍽 식비·생활편의",
+    label: "식비·생활편의",
     subs: ["음식", "배달", "커피/디저트", "편의점", "마트/식료품", "유흥", "기타"],
   },
   {
     key: "fashion_beauty",
-    label: "👗 쇼핑·패션·뷰티",
+    label: "쇼핑·패션·뷰티",
     subs: ["패션", "쇼핑", "뷰티", "온라인 쇼핑", "미용", "기타"],
   },
   {
     key: "transport_car",
-    label: "🚗 교통·자동차",
+    label: "교통·자동차",
     subs: ["교통", "자동차", "기타"],
   },
   {
     key: "home_bills",
-    label: "🏠 주거·청구",
+    label: "주거·청구",
     subs: ["주거", "통신", "공과금/관리비", "구독/정기결제", "기타"],
   },
   {
     key: "culture_leisure",
-    label: "🎬 문화·여가·오락",
+    label: "문화·여가·오락",
     subs: ["영화", "스포츠", "문화/여가", "게임", "기타"],
   },
   {
     key: "health_medical",
-    label: "❤️ 건강·의료",
+    label: "건강·의료",
     subs: ["병원/의료", "약국/의약품", "기타"],
   },
   {
     key: "travel",
-    label: "🛫 여행",
+    label: "여행",
     subs: ["여행/숙박", "기타"],
   },
   {
     key: "family_life",
-    label: "🙋‍♀️ 가족·생활",
+    label: "가족·생활",
     subs: ["육아/출산", "교육", "생활", "애견/반려동물", "기타"],
   },
   {
     key: "finance_donation",
-    label: "💳 금융·기부",
+    label: "금융·기부",
     subs: ["금융", "이체", "후원/기부", "세금/공공납부", "기타"],
   },
   {
     key: "etc",
-    label: "📦 기타",
+    label: "기타",
     subs: [],
   },
 ];
 
-// ⭐ key 기반(categoryKey|sub) → UI 라벨로 변환
+// key 기반(categoryKey|sub) → UI 라벨로 변환
 function convertCategoryToLabel(categoryStr) {
   if (!categoryStr) return categoryStr;
 
@@ -85,7 +85,7 @@ export default function DetailsPage({ loggedInUser }) {
   const [amount, setAmount] = useState("");
   const [transactions, setTransactions] = useState([]);
 
-  // 🔥 지금 수정 중인 거래 ID (null이면 "추가 모드")
+  // 현재 수정 중인 거래 ID (null이면 "추가 모드")
   const [editingId, setEditingId] = useState(null);
 
   // ---------------------- 데이터 불러오기 ----------------------
@@ -97,7 +97,7 @@ export default function DetailsPage({ loggedInUser }) {
     );
     const data = await res.json();
 
-    // 🔥 저장된 category를 UI용 라벨로 변환 (필요하다면)
+    // 저장된 category를 UI용 라벨로 변환 (필요시)
     const converted = data.map((item) => ({
       ...item,
       categoryLabel: convertCategoryToLabel(item.category),
@@ -115,7 +115,7 @@ export default function DetailsPage({ loggedInUser }) {
       userId,
       transDate: date,
       transTime: time,
-      // ⭐ DB에는 소분류만 저장!
+      // DB에는 소분류만 저장!
       category: selectedSmall,
       amount: amount,
     };
@@ -165,13 +165,13 @@ export default function DetailsPage({ loggedInUser }) {
     loadData();
   };
 
-  // 🔥 행의 "수정" 버튼 클릭 시: 폼에 값 채워넣고 수정 모드로 전환
+  // 행의 수정 버튼 클릭 시: 폼에 값 채워넣고 수정 모드로 전환
   const startEdit = (t) => {
     setEditingId(t.transactionId);
     setDate(t.transDate);
     setAmount(String(t.amount));
 
-    // categoryLabel이 "🍽 식비·생활편의 | 음식" 이거나, 그냥 "패션" 같은 경우 모두 처리
+    // categoryLabel이 식비·생활편의 | 음식 이거나, 그냥 패션 같은 경우 모두 처리
     const label = t.categoryLabel ?? "";
     const parts = label.split("|");
     const small = parts.length > 1 ? parts[1].trim() : label.trim(); // 소분류 추출
