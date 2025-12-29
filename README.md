@@ -1,6 +1,6 @@
 # 금융 소비 패턴 분석 웹사이트
 
-## 📌 프로젝트 소개
+## 프로젝트 소개
 본 프로젝트는 **금융 소비 데이터**를 기반으로  
 사용자의 소비 내역을 관리하고,  
 소비 패턴을 분석·시각화하는 웹 서비스입니다.
@@ -12,7 +12,7 @@
 
 ---
 
-## 🛠 기술 스택
+## 기술 스택
 - **Frontend**: React (SPA), React Router
 - **Backend**: PHP (REST API)
 - **Database**: Oracle DB (RDBMS)
@@ -21,7 +21,7 @@
 
 ---
 
-## ✨ 주요 기능
+## 주요 기능
 - 회원가입 / 로그인 기능
 - 사용자별 소비 내역 관리 (CRUD)
   - INSERT: 지출 내역 추가
@@ -34,7 +34,7 @@
 
 ---
 
-## 🗂 프로젝트 구조
+## 프로젝트 구조
 financial-consumption-analysis/
 
 ├─ frontend/ # React 기반 UI
@@ -49,7 +49,7 @@ financial-consumption-analysis/
 
 ---
 
-## 🧩 데이터베이스 설계
+## 데이터베이스 설계
 - **3정규형(3NF)** 기반 설계로 데이터 중복 최소화
 - **Fact Table + Dimension Table 구조**
   - CARD_CONSUMPTION을 중심으로 다차원 분석 가능
@@ -60,9 +60,8 @@ financial-consumption-analysis/
 
 ---
 
-## 📊 데이터 샘플링 전략
+## 데이터 샘플링 전략
 원본 데이터는 용량 및 민감 정보 이슈로 GitHub에는 전체를 공개하지 않았습니다.
-
 대신,
 - **2024년 1월 / 6월 / 12월 데이터**
 - **성별 · 연령대 · 업종 대분류가 고르게 포함되도록 조건 기반 샘플링**
@@ -73,7 +72,7 @@ financial-consumption-analysis/
 
 ---
 
-## 📄 Database 폴더 구성
+## Database 폴더 구성
 database/
 ├─ schema.sql
 └─ insert_sample.sql
@@ -83,14 +82,14 @@ database/
 
 ---
 
-## 🔐 보안 처리
+## 보안 처리
 - 실제 DB 접속 정보(ID, 비밀번호, IP)는 제거
 - GitHub에는 예시 값만 포함
 - 민감 데이터는 샘플로 대체
 
 ---
 
-## ▶️ 실행 방법
+## 실행 방법
 ### Frontend
 ```bash
 cd frontend
@@ -99,5 +98,5 @@ npm start
 ```
 
 ### Backend
-Apache + PHP 환경에서 실행
-REST API 방식으로 frontend와 JSON 통신
+- Apache + PHP 환경에서 실행
+- REST API 방식으로 frontend와 JSON 통신
