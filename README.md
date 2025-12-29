@@ -36,10 +36,15 @@
 
 ## 🗂 프로젝트 구조
 financial-consumption-analysis/
+
 ├─ frontend/ # React 기반 UI
+
 ├─ backend/ # PHP REST API
+
 ├─ database/ # DB 스키마 및 샘플 데이터
+
 ├─ README.md
+
 └─ .gitignore
 
 ---
