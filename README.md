@@ -96,8 +96,7 @@ database/
 cd frontend
 npm install
 npm start
-
----
+'''
 
 ### Backend
 Apache + PHP 환경에서 실행
