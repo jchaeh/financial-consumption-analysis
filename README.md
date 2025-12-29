@@ -37,14 +37,10 @@
 ## 프로젝트 구조
 financial-consumption-analysis/
 
-├─ frontend/ # React 기반 UI
-
-├─ backend/ # PHP REST API
-
-├─ database/ # DB 스키마 및 샘플 데이터
-
-├─ README.md
-
+├─ frontend/ # React 기반 UI  
+├─ backend/ # PHP REST API  
+├─ database/ # DB 스키마 및 샘플 데이터  
+├─ README.md  
 └─ .gitignore
 
 ---
@@ -73,10 +69,8 @@ financial-consumption-analysis/
 ---
 
 ## Database 폴더 구성
-database/
-
-├─ schema.sql
-
+database/  
+├─ schema.sql  
 └─ insert_sample.sql
 
 - `schema.sql` : ERD 기반 테이블 생성 스크립트
