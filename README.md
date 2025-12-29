@@ -74,7 +74,9 @@ financial-consumption-analysis/
 
 ## Database 폴더 구성
 database/
+
 ├─ schema.sql
+
 └─ insert_sample.sql
 
 - `schema.sql` : ERD 기반 테이블 생성 스크립트
