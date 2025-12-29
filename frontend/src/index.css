@@ -1,0 +1,335 @@
+/* ==== 기본 설정 ==== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f4f5f7;
+  --card-bg: #ffffff;
+  --primary: #2563eb;        /* 메인 포인트 블루 */
+  --primary-soft: #e0edff;   /* 연한 블루 배경 */
+  --accent-red: #ef4444;     /* 경고/마이너스 텍스트 */
+  --text-main: #111827;
+  --text-sub: #6b7280;
+  --border-subtle: #e5e7eb;
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    -apple-system, "Noto Sans KR", sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+/* ==== 공통 컨테이너 & 카드 ==== */
+
+.container {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 16px 48px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  padding: 24px 24px 20px;
+}
+
+/* 카드 여러 개 있을 때 간격 */
+.card + .card {
+  margin-top: 12px;
+}
+
+/* ==== 페이지 타이틀, 섹션 타이틀 ==== */
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* 설명 텍스트 */
+.helper-text {
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+/* ==== 폼 필드 ==== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-sub);
+}
+
+.field input,
+.field select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  background-color: #f9fafb;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary-soft);
+  background-color: #ffffff;
+}
+
+/* ==== 버튼 ==== */
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: transform 0.05s ease, box-shadow 0.1s ease,
+    background-color 0.15s ease, color 0.15s ease;
+}
+
+/* 기본(파란) 버튼 */
+button,
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+button:hover,
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* 서브 버튼 (회색) */
+.btn-secondary {
+  background: #e5e7eb;
+  color: #374151;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* 위험 버튼 (삭제용) */
+.btn-danger {
+  background: var(--accent-red);
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+/* 비활성화 상태 */
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==== 상단 Navbar 정리용 (기존 inline 스타일 위에 얹어서 보정) ==== */
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+header .nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 링크 공통 */
+header a {
+  text-decoration: none;
+}
+
+/* ==== “나의 소비” 페이지 전용 스타일 ==== */
+
+.my-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.my-summary-card {
+  background: var(--primary-soft);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.my-summary-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 4px;
+}
+
+.my-summary-card .amount {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.my-summary-card .sub {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+.my-recent-list {
+  margin-top: 8px;
+}
+
+.my-recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.my-recent-item:last-child {
+  border-bottom: none;
+}
+
+/* ==== “지출 내역” 카드 리스트 ==== */
+
+.transaction-list {
+  margin-top: 16px;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.transaction-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.transaction-date {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.transaction-category {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.transaction-amount {
+  font-weight: 700;
+}
+
+/* ==== 소비 리포트 카드 영역 ==== */
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.report-grid-wide {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .report-grid,
+  .report-grid-wide,
+  .my-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 리포트 카드 헤더 */
+.report-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.report-big-number {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.report-sub {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+.report-alert {
+  font-size: 13px;
+  margin-top: 6px;
+  color: var(--accent-red);
+}
+
+/* 차트 캔버스 기본 높이(Chart.js) */
+.report-chart {
+  width: 100%;
+  height: 220px;
+}
+
+/* 푸터 설명 텍스트 */
+.report-footer {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
