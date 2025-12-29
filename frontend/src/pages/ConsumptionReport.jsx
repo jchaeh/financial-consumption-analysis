@@ -24,7 +24,7 @@ ChartJS.register(
   Legend
 );
 
-// 🔥 이제 PHP 서버 보고서 엔드포인트 사용
+// PHP 서버 보고서 엔드포인트 사용
 const API_BASE =
   "http://203.249.87.58/db2025_502/db2025_502_team1/api";
 
@@ -63,7 +63,7 @@ export default function ConsumptionReport({ loggedInUser }) {
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔥 App.js에서 넘겨주는 loggedInUser 사용
+  // App.js에서 넘겨주는 loggedInUser 사용
   const userId = loggedInUser?.userId;
 
   useEffect(() => {
@@ -117,15 +117,15 @@ export default function ConsumptionReport({ loggedInUser }) {
   const peerAverage = Number(summary.peerAverage || 0);
   const txCount = Number(summary.transactionCount || 0);
 
-  // 🔹 평균 결제 금액
+  // 평균 결제 금액
   const avgPayment = txCount ? Math.round(thisMonthTotal / txCount) : 0;
 
-  // 🔹 이번 달 지출 순위용
+  // 이번 달 지출 순위용
   const sortedCategories = [...byCategory].sort(
     (a, b) => Number(b.myAmount || 0) - Number(a.myAmount || 0)
   );
 
-  // 🔹 카테고리 문자열 정리 (key|소분류 → 사용자 보기용)
+  // 카테고리 문자열 정리 (key|소분류 → 사용자 보기용)
   const prettyCategory = (category) => {
     if (!category) return "";
     const [bigKey, small] = category.split("|");
@@ -133,23 +133,23 @@ export default function ConsumptionReport({ loggedInUser }) {
     // bigKey가 키 형식일 수도, 이모지/라벨일 수도 있음
     // 키 목록
     const BIG_LABEL_MAP = {
-      food_convenience: "🍽 식비·생활편의",
-      fashion_beauty: "👗 쇼핑·패션·뷰티",
-      transport_car: "🚗 교통·자동차",
-      home_bills: "🏠 주거·청구",
-      culture_leisure: "🎬 문화·여가·오락",
-      health_medical: "❤️ 건강·의료",
-      travel: "🛫 여행",
-      family_life: "🙋‍♀️ 가족·생활",
-      finance_donation: "💳 금융·기부",
-      etc: "📦 기타",
+      food_convenience: "식비·생활편의",
+      fashion_beauty: "쇼핑·패션·뷰티",
+      transport_car: "교통·자동차",
+      home_bills: "주거·청구",
+      culture_leisure: "문화·여가·오락",
+      health_medical: "건강·의료",
+      travel: "여행",
+      family_life: "가족·생활",
+      finance_donation: "금융·기부",
+      etc: "기타",
     };
 
     const label = BIG_LABEL_MAP[bigKey] || bigKey; // 키 없으면 그냥 원문
     return `${label} | ${small || ""}`;
   };
 
-  // 🔹 또래 대비 차이
+  // 또래 대비 차이
   const diff = thisMonthTotal - peerAverage;
   const diffAbs = Math.abs(diff);
 
@@ -165,7 +165,7 @@ export default function ConsumptionReport({ loggedInUser }) {
         )}원 덜 쓰고 있어요`;
   const diffColor = diff > 0 ? "#DC2626" : diff < 0 ? "#2563EB" : "#6B7280";
 
-  // 🔹 카테고리별 지출 비교 (막대)
+  // 카테고리별 지출 비교 (막대)
   const barLabels = byCategory.map((c) => prettyCategory(c.category));
   const barMyData = byCategory.map((c) => Number(c.myAmount || 0));
   const barPeerData = byCategory.map((c) => Number(c.peerAmount || 0));
@@ -211,7 +211,7 @@ export default function ConsumptionReport({ loggedInUser }) {
     },
   };
 
-  // 🔹 지출 추이 (일별)
+  // 지출 추이 (일별)
   const lineLabels = dailyTrend.map((d) => d.date);
   const lineMyData = dailyTrend.map((d) => Number(d.myAmount || 0));
   const linePeerData = dailyTrend.map((d) => Number(d.peerAmount || 0));
@@ -262,7 +262,7 @@ export default function ConsumptionReport({ loggedInUser }) {
     },
   };
 
-  // 🔹 카테고리 비중 (도넛)
+  // 카테고리 비중 (도넛)
   const totalForShare = byCategory.reduce(
     (acc, c) => acc + Number(c.myAmount || 0),
     0
