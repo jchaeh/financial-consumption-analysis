@@ -32,9 +32,9 @@ export default function Login({ setLoggedInUser }) {
       const data = await res.json();
 
       if (data.available) {
-        setMsg("✔ 사용 가능한 아이디입니다.");
+        setMsg("사용 가능한 아이디입니다.");
       } else {
-        setMsg("❌ 이미 사용 중인 아이디입니다.");
+        setMsg("이미 사용 중인 아이디입니다.");
       }
     } catch (e) {
       setMsg("중복 확인 중 오류 발생.");

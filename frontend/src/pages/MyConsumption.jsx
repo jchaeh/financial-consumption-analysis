@@ -48,7 +48,7 @@ export default function MyConsumption({ loggedInUser }) {
       const sorted = sortByDate(tData);
       setTransactions(sorted);
 
-      // ====== 여기서 이번 달 합계 / 최다 카테고리 계산 ======
+      // ====== 이번 달 합계 / 최다 카테고리 계산 ======
       const thisMonthList = sorted.filter((t) => isThisMonth(t.transDate));
 
       const total = thisMonthList.reduce(
@@ -74,7 +74,7 @@ export default function MyConsumption({ loggedInUser }) {
         setTopCategory(null);
       }
 
-      // 2) 또래 평균만 report.php에서 (실패해도 그냥 넘어감)
+      // 2) 또래 평균만 report.php에서 (실패시 넘어감)
       try {
         const rRes = await fetch(
           `${API_BASE}/report.php?userId=${encodeURIComponent(userId)}`

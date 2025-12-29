@@ -25,7 +25,7 @@ function App() {
     <BrowserRouter basename={basename}>
       <Navbar 
         loggedInUser={loggedInUser} 
-        setLoggedInUser={setLoggedInUser}   // 🔥 추가됨!
+        setLoggedInUser={setLoggedInUser}   
         onLogout={handleLogout}
       />
 
