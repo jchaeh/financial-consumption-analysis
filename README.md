@@ -46,8 +46,8 @@ financial-consumption-analysis/
 ---
 
 ## 데이터베이스 설계
-- **3정규형(3NF)** 기반 설계로 데이터 중복 최소화
-- **Fact Table + Dimension Table 구조**
+- 3정규형(3NF) 기반 설계로 데이터 중복 최소화
+- Fact Table + Dimension Table 구조
   - CARD_CONSUMPTION을 중심으로 다차원 분석 가능
 - USER – USER_DETAIL: 1:1 관계
 - INDUSTRY_L1 – INDUSTRY_L2: 1:N 관계
@@ -57,10 +57,10 @@ financial-consumption-analysis/
 ---
 
 ## 데이터 샘플링 전략
-원본 데이터는 용량 및 민감 정보 이슈로 GitHub에는 전체를 공개하지 않았습니다.
+원본 데이터(2024년 전체)는 용량 및 민감 정보 이슈로 GitHub에는 전체를 공개하지 않았습니다.
 대신,
-- **2024년 1월 / 6월 / 12월 데이터**
-- **성별 · 연령대 · 업종 대분류가 고르게 포함되도록 조건 기반 샘플링**
+- 2024년 1월 / 6월 / 12월 데이터
+- 성별 · 연령대 · 업종 대분류가 고르게 포함되도록 조건 기반 샘플링
 
 을 적용한 **샘플 데이터**만 공개하였습니다.
 
